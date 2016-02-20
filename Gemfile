@@ -2,12 +2,13 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 gem 'rails', '4.2.5.1'
-gem 'mysql', '~> 2.9', '>= 2.9.1'
+gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-gem 'active_model_serializers'
+gem 'active_model_serializers', '0.9.3'
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
