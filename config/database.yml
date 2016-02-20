@@ -4,7 +4,7 @@ development:
   database: task_scheduler_development
   encoding: utf8
   username: root
-  password:
+  password: 1234
 
 test: &test
   adapter: mysql2
@@ -12,4 +12,4 @@ test: &test
   database: task_scheduler_test
   encoding: utf8
   username: root
-  password:
+  password: 1234
