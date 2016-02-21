@@ -11,17 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220150238) do
-
-  create_table "tasks", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.string   "executable_path", limit: 255
-    t.datetime "started_at"
-    t.datetime "ended_at"
-    t.text     "days_of_week",    limit: 65535
-    t.string   "server",          limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end

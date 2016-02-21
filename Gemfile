@@ -7,7 +7,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-gem 'active_model_serializers', '0.9.3'
+gem 'activeresource'
 gem 'decent_exposure', '2.3.3'
 
 source 'https://rails-assets.org' do
@@ -23,11 +23,14 @@ group :development do
   gem 'spring'
 end
 
-
 group :test do
-  gem 'shoulda-matchers', require: false
+  gem 'factory_girl'
   gem 'simplecov', require: false
-  gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'rspec', '3.3.0'
+  gem 'rspec-rails', '3.3.3'
+  gem 'rspec-its', '1.2.0'
+  gem 'shoulda', '3.5.0'
+  gem 'shoulda-matchers', '~> 2.8'
 end
 

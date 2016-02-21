@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
-    attr_accessor :started_at_date, :started_at_time, :ended_at_date, :ended_at_time
+    has_and_belongs_to_many :servers
     validate :validate_dates
-    validates :name, :server, :days_of_week, :executable_path, presence: true
+    validates :name, :days_of_week, :executable_path, presence: true
 
     def validate_dates
       if self.started_at > self.ended_at

@@ -6,7 +6,6 @@ class CreateTasks < ActiveRecord::Migration
       t.datetime :started_at
       t.datetime :ended_at
       t.text :days_of_week
-      t.string :server
       t.timestamps null: false
     end
   end
