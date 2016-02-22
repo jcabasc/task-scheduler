@@ -2,9 +2,9 @@
 <h2>Listing tasks</h2>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Executable Path</th>
-    <th>Status</th>
+    <th>Process executed</th>
+    <th>Start time</th>
+    <th>End time</th>
     <th>Actions</th>
   </tr>
   <% @tasks.each do |task| %>
@@ -13,10 +13,10 @@
         <%= task.name %>
       </td>
       <td>
-        <%= task.executable_path %>
+        <%= task.started_at %>
       </td>
       <td>
-        <%= task.status %>
+        <%= task.ended_at %>
       </td>
       <td>
         <%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %>

@@ -31,5 +31,10 @@
         <p>End date and time: <%= @task.ended_at %> </p>
     </div>
   </div>
+    <div class="row">
+    <div class="col-md-12">
+        <p>Status: <%= @task.status %> </p>
+    </div>
+  </div>
 </div>
 <%= link_to "Go to tasks", tasks_path %>

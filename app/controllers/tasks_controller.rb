@@ -46,6 +46,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :executable_path, :days_of_week, :server, :started_at, :ended_at, server_ids: [])
+    params.require(:task).permit(:name, :executable_path, :days_of_week, :server, :started_at, :ended_at, :status, server_ids: [])
   end
 end
