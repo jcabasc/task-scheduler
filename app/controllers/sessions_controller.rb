@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
                 response_body = JSON.parse(response.body)
                 session[:auth_token] = response_body["resource"]["user"]["authentication_token"]
                 session[:current_user_id] = response_body["resource"]["user"]["id"]
-                redirect_to "/tasks"
             end
+            redirect_to "/tasks"
         rescue ActiveResource::UnauthorizedAccess
             redirect_to "/sessions/new"
         end
