@@ -1,14 +1,14 @@
-class Task < ActiveRecord::Base
-    has_and_belongs_to_many :servers
-    validate :validate_dates
-    validates :name, :days_of_week, :executable_path, presence: true
+require 'active_resource'
+class Task < ActiveResource::Base
+    self.site = "http://localhost:4000/api/v1"
+    self.include_root_in_json = true
+    has_many :servers
 
-    def validate_dates
-      if self.started_at > self.ended_at
-        self.errors[:base] <<  "Start date can't be greater than Finish date"
-      end
-      if self.started_at < Time.now.getutc && self.new_record?
-        self.errors[:base] << "Start date can't be less than current date"
-      end
+    def ended_at
+      Time.at(self.ended_at_int)
+    end
+
+    def started_at
+      Time.at(self.started_at_int)
     end
 end

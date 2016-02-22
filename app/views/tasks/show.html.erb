@@ -1,34 +1,34 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <h2><%= task.name %></h2>
+      <h2><%= @task.name %></h2>
       <div class="btn-group btn-group-sm">
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-        <p>Executable path: <%= task.executable_path %> </p>
+        <p>Executable path: <%= @task.executable_path %> </p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-        <p>Server: <%= task.server %> </p>
+        <p>Server: <%= @task.servers.any? && @task.servers.first.name %> </p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-        <p>Days of the week to be executed: <%= task.days_of_week %> </p>
+        <p>Days of the week to be executed: <%= @task.days_of_week %> </p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-        <p>Start date and time: <%= task.started_at %> </p>
+        <p>Start date and time: <%= @task.started_at %> </p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-        <p>End date and time: <%= task.ended_at %> </p>
+        <p>End date and time: <%= @task.ended_at %> </p>
     </div>
   </div>
 </div>

@@ -4,10 +4,10 @@
   <tr>
     <th>Name</th>
     <th>Executable Path</th>
-    <th>Server</th>
+    <th>Status</th>
     <th>Actions</th>
   </tr>
-  <% tasks.each do |task| %>
+  <% @tasks.each do |task| %>
     <tr>
       <td>
         <%= task.name %>
@@ -16,7 +16,7 @@
         <%= task.executable_path %>
       </td>
       <td>
-        <%= task.server %>
+        <%= task.status %>
       </td>
       <td>
         <%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %>

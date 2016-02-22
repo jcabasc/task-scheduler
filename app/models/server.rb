@@ -1,3 +1,4 @@
-class Server < ActiveRecord::Base
-  has_and_belongs_to_many :tasks
+require 'active_resource'
+class Server < ActiveResource::Base
+    self.site = "http://localhost:4000/api/v1"
 end
