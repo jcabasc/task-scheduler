@@ -1,0 +1,20 @@
+<div class="container-fluid">
+<h2>Logs</h2>
+<table>
+  <tr>
+    <th>Process executed</th>
+    <th>Status</th>
+  </tr>
+  <% @logs.each do |log| %>
+    <tr>
+      <td>
+        <%= log.name %>
+      </td>
+      <td>
+        <%= log.status %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+</div>

@@ -20,16 +20,17 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">Home</a></li>
           <li><a href="/tasks">Tasks</a></li>
-          <li><a href="#">Logs</a></li>
+          <li><a href="/logs">Logs</a></li>
         </ul>
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
       </div>
     </div>
   </nav>
+  <% flash.keys.each do |type| %>
+  <div class="<%=type %>">
+      <p><%=flash[type] %></p>
+  </div>
+<% end %>
   <%= yield %>
 
 </body>

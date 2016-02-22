@@ -1,4 +1,6 @@
 <div class="container-fluid">
   <h4>Edit Scheduled task</h4>
-  <%= render "form" %>
+  <%= form_for @task, as: :task, url: task_path(@task), method: :put, html: { class: "form-horizontal" } do |f| %>
+      <%= render "form", f: f %>
+  <% end %>
 </div>

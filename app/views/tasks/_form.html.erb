@@ -1,51 +1,44 @@
 <div class="container">
-  <%= form_for (@task), html: {class: "form-horizontal"} do |f| %>
-    <% @task.errors.full_messages.each do |message| %>
-      <div class="alert alert-danger">
-        <%= message %>
-      </div>
-    <% end %>
-    <div class="form-group">
-      <%= f.label :name, class: "col-sm-2 text-left" %>
-      <div class="col-sm-4">
-        <%= f.text_field :name , class: "form-control" %>
-      </div>
+  <div class="form-group">
+    <%= f.label :name, class: "col-sm-2 text-left" %>
+    <div class="col-sm-4">
+      <%= f.text_field :name , class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :executable_path, class: "col-sm-2 text-left" %>
-      <div class="col-sm-4">
-        <%= f.text_field :executable_path, class: "form-control" %>
-      </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :executable_path, class: "col-sm-2 text-left" %>
+    <div class="col-sm-4">
+      <%= f.text_field :executable_path, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :started_at, class: "col-sm-2 text-left" %>
-      <div class="col-sm-4">
-        <%= f.datetime_select(:started_at, :default => { :hour => 23, :minute => 59 }) %>
-      </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :started_at, class: "col-sm-2 text-left" %>
+    <div class="col-sm-4">
+      <%= f.datetime_select(:started_at, :default => { :hour => 23, :minute => 59 }) %>
     </div>
-    <div class="form-group">
-      <%= f.label :ended_at, class: "col-sm-2 text-left" %>
-      <div class="col-sm-4">
-        <%= f.datetime_select(:ended_at, :default => { :hour => 23, :minute => 59 }) %>
-      </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ended_at, class: "col-sm-2 text-left" %>
+    <div class="col-sm-4">
+      <%= f.datetime_select(:ended_at, :default => { :hour => 23, :minute => 59 }) %>
     </div>
-    <div class="form-group">
-      <%= f.label :days_of_week, class: "col-sm-2 text-left" %>
-      <div class="col-sm-4">
-        <%= f.text_field :days_of_week, class: "form-control" %>
-        Format: mon,tue,wed,thu,fri,sat,sun
-      </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :days_of_week, class: "col-sm-2 text-left" %>
+    <div class="col-sm-4">
+      <%= f.text_field :days_of_week, class: "form-control" %>
+      Format: mon,tue,wed,thu,fri,sat,sun
     </div>
-    <div class="form-group">
-      <%= f.label :servers, class: "col-sm-2 text-left" %>
-      <div class="col-sm-4">
-        <%= f.collection_select :server_ids, @servers, :id, :name, {:prompt => @select_value, :selected => @task.server_ids.any? && @task.server_ids.first } %>
-      </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :servers, class: "col-sm-2 text-left" %>
+    <div class="col-sm-4">
+      <%= f.collection_select :server_ids, @servers, :id, :name, {:selected => @task.server_ids.any? && @task.server_ids.first } %>
     </div>
-    <div class="form-group">
-      <div class="col-sm-4">
-        <%= f.submit nil, class: "btn btn-success" %>
-      </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.submit nil, class: "btn btn-success" %>
     </div>
-  <% end %>
+  </div>
 </div>

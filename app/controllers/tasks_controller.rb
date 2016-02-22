@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = OpenStruct(:name, :status, :executable_path, :started_at, :ended_at, :days_of_week, :server_ids)
+    @task = Task.new(task_attributes)
     @servers = Server.all.elements
   end
 
@@ -21,6 +21,7 @@ class TasksController < ApplicationController
 
   def update
       task = Task.find(params[:id])
+      task.attributes.merge!(task_params)
       save_or_render(task: task, action: 'edit')
   end
 
@@ -29,8 +30,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    task.destroy if task.present?
-    redirect_to :tasks
+    @task = Task.find(params[:id])
+    @task.destroy if @task.present?
+    redirect_to action: "index"
   end
 
   private
@@ -38,7 +40,7 @@ class TasksController < ApplicationController
   def save_or_render(task:, action:)
    if task.save
       flash[:notice] = 'The task was saved!'
-      redirect_to action: "show", id: task.resource.id
+      redirect_to action: "index"
     else
       flash[:alert] = 'The task was not saved!'
       render action.to_sym
@@ -46,6 +48,10 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :executable_path, :days_of_week, :server, :started_at, :ended_at, :status, server_ids: [])
+    params.require(:task).permit(:name, :executable_path, :days_of_week, :started_at, :ended_at, :status, :server_ids)
+  end
+
+  def task_attributes
+    {name: "", executable_path: "", days_of_week: "", started_at_int: Time.now.getutc.to_i + 1.hours, ended_at_int: Time.now.getutc.to_i + 2.hours, status: "unstarted", server_ids: []}
   end
 end
