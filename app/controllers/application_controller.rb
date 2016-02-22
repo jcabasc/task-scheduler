@@ -7,7 +7,13 @@ class ApplicationController < ActionController::Base
     strategy DecentExposure::StrongParametersStrategy
   end
 
+  before_filter :require_user
+
   helper_method :current_user
+
+  def require_user
+    head :unauthorized unless current_user
+  end
 
   protected
 

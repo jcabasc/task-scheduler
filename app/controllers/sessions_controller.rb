@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    skip_before_filter :require_user
 
     def new
         @user = User.new
@@ -14,7 +15,8 @@ class SessionsController < ApplicationController
             end
             redirect_to "/tasks"
         rescue ActiveResource::UnauthorizedAccess
-            redirect_to "/sessions/new"
+            redirect_to "/sign_in"
         end
+
     end
 end

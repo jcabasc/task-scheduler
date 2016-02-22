@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h4>New Scheduled user</h4>
   <div class="container">
-  <%= form_for @user, as: :session, url: sessions_path(@user), method: :post, html: { class: "form-horizontal" } do |f| %>
+  <%= form_for @user, as: :session, url: "/sign_in", method: :post, html: { class: "form-horizontal" } do |f| %>
     <% @user.errors.full_messages.each do |message| %>
       <div class="alert alert-danger">
         <%= message %>
